@@ -6,7 +6,8 @@ services:
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit1
-    
+    depends_on:
+      - rabbit3
     ports:
       - "4369:4369"
       - "5671:5671"
@@ -27,13 +28,12 @@ services:
   rabbit2:
     image: rabbitmq:3-management
     hostname: rabbit2
-    depends_on:
-      - rabbit1
+
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit2
     depends_on:
-      - rabbit1
+      - rabbit3
     configs:
       - source: rabbitmq_config
         target: /etc/rabbitmq/rabbitmq.config
@@ -46,13 +46,12 @@ services:
   rabbit3:
     image: rabbitmq:3-management
     hostname: rabbit3
-    depends_on:
-      - rabbit1
+    # depends_on:
+    #   - rabbit3
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit3
-    depends_on:
-      - rabbit2
+
     configs:
       - source: rabbitmq_config
         target: /etc/rabbitmq/rabbitmq.config
