@@ -46,8 +46,6 @@ services:
   rabbit3:
     image: rabbitmq:3-management
     hostname: rabbit3
-    # depends_on:
-    #   - rabbit3
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit3
