@@ -64,6 +64,8 @@ configs:
     file: ./definitions.json
 
 networks:
+  rabbitmq-cluster:
+    driver: overlay
   default:
     external:
       name: rabbitmq-cluster
