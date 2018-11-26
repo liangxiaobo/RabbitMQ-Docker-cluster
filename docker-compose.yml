@@ -32,7 +32,8 @@ services:
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit2
-    
+    depends_on:
+      - rabbit1
     configs:
       - source: rabbitmq_config
         target: /etc/rabbitmq/rabbitmq.config
@@ -50,7 +51,8 @@ services:
     environment:
       RABBITMQ_ERLANG_COOKIE: "secret string"
       RABBITMQ_NODENAME: rabbit3
-    
+    depends_on:
+      - rabbit2
     configs:
       - source: rabbitmq_config
         target: /etc/rabbitmq/rabbitmq.config
