@@ -104,3 +104,8 @@ Same as in the section detailing `docker run` you can launch the consumer/produc
 Very useful tool for simulating message circulation in your RabbitMQ setup.
 
 http://tryrabbitmq.com/
+
+##下面是自己修改后的，只需要按下面执行命令就可以了
+```bash
+docker stack deploy -c docker-compose.yml rabbit
+```
