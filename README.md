@@ -64,40 +64,6 @@ This will display the logs for the chosen container, and follow them just like `
 
 The producer / consumer scripts were created as simple Node.js scripts so they can be executed using regular bash script execution syntax.
 
-## Using `docker-compose`
-
-This section details how to start the whole cluster using `docker-compose` and a YAML definition file
-
-1. Create a network shared by all containers
-```bash
-docker network create rabbitmq-cluster
-```
-
-2. Start cluster:
-```bash
-docker-compose up -d
-```
-
-3. View logs for all containers
-```bash
-docker-compose logs -f
-```
-
-3. Run producer / consumer for testing
-
-Same as in the section detailing `docker run` you can launch the consumer/producer as regular shell scripts.
-
-## Create a distributed local cluster
-
-*To be continued*
-
-## Deploying to AWS
-
-*To be continued*
-
-## Deploying to Microsoft Azure
-
-*To be continued*
 
 ## Tools
 
@@ -105,7 +71,7 @@ Very useful tool for simulating message circulation in your RabbitMQ setup.
 
 http://tryrabbitmq.com/
 
-##下面是自己修改后的，只需要按下面执行命令就可以了
+## 下面是自己修改后的，只需要按下面执行命令就可以了
 ```bash
 docker stack deploy -c docker-compose.yml rabbit
 ```
